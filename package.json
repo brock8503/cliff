@@ -1,0 +1,17 @@
+{
+  "name": "node-cliff",
+  "version": "0.0.0",
+  "description": "Dynamic execute java from a node module",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kyle McFarland",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "java": "^0.10.0"
+  }
+}
