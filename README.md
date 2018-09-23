@@ -23,16 +23,19 @@ In ES6 you can use [template strings](https://developer.mozilla.org/de/docs/Web/
 var cliff = require('cliff');
 
 var helloWorld = cliff.func(`
-public class HelloWorld implements Runnable {
-  public void run() {
-    System.out.println("Hello World!");
+  public class HelloWorld implements Runnable {
+    String input;
+    public HelloWorld(String input) {
+      this.input = input;
+    }
+    public void run() {
+      System.out.println("Hello " + this.input + " World!");
+    }
   }
-}
 `);
 
 helloWorld('JavaScript', function (error, result) {
-    if (error) throw error;
-    console.log(result);
+  if (error) throw error;
 });
 ```
 

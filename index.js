@@ -12,9 +12,12 @@ exports.func = function(code) {
   return function (input, cb) {
     java.callMethod(compiler, "compile", null, getClassName(code), code, function(err, results) {
         if(err) { console.error(err); return; }
-        java.callMethod(results, "newInstance", function(err, results){
+        java.callMethod(results, "getConstructors", function(err, results){
           if(err) { console.error(err); return; }
-          java.callMethod(results, "run", cb)
+          java.callMethod(results[0], "newInstance", input, function(err, results){
+            if(err) { console.error(err); return; }
+            java.callMethod(results, "run", cb)
+          })
         })
     })
   }
